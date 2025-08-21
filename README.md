@@ -16,16 +16,16 @@ Il s’adresse aux ingénieurs, étudiants en génie civil, architectes et passi
 3. **Acier** : précisez le type d’acier et le diamètre des cadres transversaux.  
 4. **Enrobage** : utilisez l’outil dédié pour déterminer la valeur correcte selon EC2.  
 5. **Résultats** : obtenez automatiquement le diamètre, le nombre de barres, leur espacement et la hauteur utile de la section (d).
-![Dimensions1 ](images/schema-dimension-poutre-isostatique-rectangulaire_resize.webp)
-![Dimensions2 ](images/schema-dimension-poutre-isostatique-rectangulaire-coupe_resize.webp)
+![Dimensions1 ](images/schema-dimension-poutre-isostatique-rectangulaire.jpg)
+![Dimensions2 ](images/schema-dimension-poutre-isostatique-rectangulaire-coupe.jpg)
 
 ## ⚠️ Avertissements
 - Cet outil est destiné aux **poutres isostatiques rectangulaires en flexion simple**.  
 - Non adapté aux poutres continues ou à géométrie complexe.  
 - Les calculs fournis sont **préliminaires** : une validation finale par un **bureau d’études agréé** est indispensable.  
 - Les auteurs n’assument aucune responsabilité en cas d’utilisation inappropriée.
-![Poutres isostatiques ](images/poutre-isostatique_resize.webp)
-![Poutres continues ](images/poutre-continue_resize.webp)
+![Poutres isostatiques ](images/poutre-isostatique.jpg)
+![Poutres continues ](images/poutre-continue.jpg)
 
 ## 🤝 Contributions
 Ce projet est ouvert aux contributions : corrections, améliorations, traductions.
