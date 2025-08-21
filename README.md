@@ -15,13 +15,17 @@ Il s’adresse aux ingénieurs, étudiants en génie civil, architectes et passi
 2. **Dimensions** : indiquez la largeur (b) et la hauteur (h) de la poutre.  
 3. **Acier** : précisez le type d’acier et le diamètre des cadres transversaux.  
 4. **Enrobage** : utilisez l’outil dédié pour déterminer la valeur correcte selon EC2.  
-5. **Résultats** : obtenez automatiquement le diamètre, le nombre de barres, leur espacement et la hauteur utile de la section (d).  
+5. **Résultats** : obtenez automatiquement le diamètre, le nombre de barres, leur espacement et la hauteur utile de la section (d).
+![Dimensions1 ](images/schema-dimension-poutre-isostatique-rectangulaire_resize.webp)
+![Dimensions2 ](images/schema-dimension-poutre-isostatique-rectangulaire-coupe_resize.webp)
 
 ## ⚠️ Avertissements
 - Cet outil est destiné aux **poutres isostatiques rectangulaires en flexion simple**.  
 - Non adapté aux poutres continues ou à géométrie complexe.  
 - Les calculs fournis sont **préliminaires** : une validation finale par un **bureau d’études agréé** est indispensable.  
 - Les auteurs n’assument aucune responsabilité en cas d’utilisation inappropriée.
+![Poutres isostatiques ](images/poutre-isostatique_resize.webp)
+![Poutres continues ](images/poutre-continue_resize.webp)
 
 ## 🤝 Contributions
 Ce projet est ouvert aux contributions : corrections, améliorations, traductions.
@@ -34,6 +38,8 @@ Vous êtes libre d’utiliser, modifier et partager ce code dans le respect des 
 ## 🌍 Vision & Bien commun
 Cet outil fait partie d’une initiative visant à rendre les méthodes de calcul du béton armé (selon Eurocode 2) accessibles librement au plus grand nombre.
 Il contribue à l’interopérabilité, à l’ouverture des ressources pédagogiques et à la démocratisation des normes européennes dans le domaine de la construction.
+
+Pour accéder à la version complète avec le ferraillage automatique des arrêts de barres, des ancrages de chaque lit d'acier, du diamètre de mandrin et du retour pour le façonnage des barres selon les exigences de l'EC2, consultez [beton-guide.com](https://beton-guide.com/calcul/calcul-poutres-beton-arme-eurocode2-logiciel-gratuit-en-ligne.html).
 
 ## 📦 Installation
 Aucune installation nécessaire : il s’agit d’un outil web.  
