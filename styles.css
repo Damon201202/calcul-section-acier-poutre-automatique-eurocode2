@@ -1,0 +1,196 @@
+/* ===== Structure principale ===== */
+.h2 {
+  display: flex;
+  justify-content: center;
+  margin: 0.6rem 0;
+}
+
+.h2-title h1 {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.4;
+  color: black;
+}
+
+.h2-title_summary {
+  display: block;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 0.3rem;
+}
+
+.h2-title_text {
+  display: block;
+  font-weight: normal;
+  color: #8b949e;
+}
+
+/* ===== Calculateur ===== */
+.calcul-four {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr 3fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #30363d;
+  background-color: #161b22;
+}
+
+.calcul-four_text {
+  font-size: 0.95rem;
+  color: #c9d1d9;
+}
+
+.calcul-four_inscriptions {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+}
+
+.calcul-four_symb {
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.calcul-four_unit {
+  font-size: 0.85rem;
+  color: #8b949e;
+  text-align: center;
+  width: 100%;
+}
+
+.calcul-four_value,
+.calcul-four-select select {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+.calcul-four_value:focus,
+.calcul-four-select select:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 4px rgba(88, 166, 255, 0.3);
+}
+
+.calcul-four-select {
+  width: 100%;
+}
+
+.calcul-four_result {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff; /* blanc */
+  font-style: italic; /* italique */
+  text-align: center;
+}
+
+
+.calcul-four_text a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.calcul-four_text a:hover {
+  text-decoration: underline;
+}
+
+.calcul-four_verif {
+  color: #ffffff; /* blanc */
+  font-style: italic; /* italique */
+  text-align: center;
+}
+
+/* ===== Alertes ===== */
+.alert {
+  display: none;
+  background: #3d2e00;
+  color: #f0d98c;
+  padding: 0.6rem;
+  border: 1px solid #5c4a00;
+  border-radius: 4px;
+  margin: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .calcul-four {
+    grid-template-columns: 1fr;
+  }
+
+  .calcul-four_columns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calcul-four_value,
+  .calcul-four-select select {
+    width: 100%;
+  }
+
+  .calcul-four_symb,
+  .calcul-four_unit {
+    text-align: left;
+  }
+
+  table, caption, th, td {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== Tableau des armatures ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: #0d1117;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+}
+
+table caption {
+  background-color: #58a6ff;
+  color: #0d1117;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.8rem;
+}
+
+th, td {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #30363d;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #161b22;
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+td {
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+tr:nth-child(even) td {
+  background-color: #161b22;
+}
+
+tr:hover td {
+  background-color: #21262d;
+}

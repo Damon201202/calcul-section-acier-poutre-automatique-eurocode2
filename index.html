@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcul automatique des poutres isostatiques en béton armé selon Eurocode 2</title>
+  <link rel="stylesheet" href="styles.css"> <!-- ton fichier CSS -->
+</head>
+<body>
+
+<div class="h2">
+    <div class="h2-title">
+      <h1>
+        <span class="h2-title_summary">Outil de Calcul Automatique :
+		<br>Section d'Acier des Poutres en Béton Armé
+		<br>conformément à l’Eurocode 2 (NF EN 1992-1-1 / EC2).</span>
+      </h1>
+    </div>
+  </div>
+  
+<h3 class="h3">
+          <span class="h3-text">PARAMÈTRES DE PROJET</span>
+        </h3>
+
+<div class="calcul-four">
+          <div class="calcul-four_columns ">
+            <p class="calcul-four_inscriptions">Appellation</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_inscriptions">Symbole / Formule</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_3">
+            <p class="calcul-four_inscriptions">Valeur</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_inscriptions">Unité</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_5">
+            <p class="calcul-four_inscriptions">Remarques</p>
+          </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">La durée d’utilisation : </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              T
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-select">
+            <select class="calcul-four-select calcul-four-select_duree">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="25">25</option>
+              <option value="50"  selected>50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              Ans 
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text calcul-four_duree">Bâtiments et autres structures courantes.
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Classe d’exposition : </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              X
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-select">
+            <select class="calcul-four-select calcul-four-select-classe_exposition">
+              <option value="XO">XO</option>
+              <option value="XC1" selected>XC1</option>
+              <option value="XC2">XC2</option>
+              <option value="XC3">XC3</option>
+              <option value="XC4">XC4</option>
+              <option value="XD1">XD1</option>
+              <option value="XD2">XD2</option>
+              <option value="XD3">XD3</option>
+              <option value="XS1">XS1</option>
+              <option value="XS2">XS2</option>
+              <option value="XS3">XS3</option>
+              <option value="XF1">XF1</option>
+              <option value="XF2">XF2</option>
+              <option value="XF3">XF3</option>
+              <option value="XF4">XF4</option>
+              <option value="XA1">XA1</option>
+              <option value="XA2">XA2</option>
+              <option value="XA3">XA3</option>
+            </select>
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              - 
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text calcul-four_exposition"><a href="https://beton-guide.com/beton/classes-exposition-beton-definition-explications-choix-tableau-reference-visuelle.html">classes d’expositions du béton</a>.
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Classe de résistance du béton :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              C
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-select">
+            <select class="calcul-four-select calcul-four-select-classe_beton">
+              <option value="12-15">C12/15</option>
+              <option value="16-20">C16/20</option>
+              <option value="20-25">C20/25</option>
+              <option value="25-30" selected>C25-30</option>
+              <option value="30-37">C30/37</option>
+              <option value="35-45">C35/45</option>
+              <option value="40-50">C40/50</option>
+              <option value="45-55">C45/55</option>
+              <option value="50-60">C50/60</option>
+            </select>
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              MPa 
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text ">
+            <a href="https://beton-guide.com/beton/classes-beton-resistance-masse-volumique-consistance-teneurs-chlorures.html">classes de béton</a>. 
+          </div>
+        </div>
+        <div class="alert alert-element-classe_beton"></div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Acier à béton :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              B
+              </p>
+            </div>
+          <div class="calcul-four_columns calcul-four-select">
+            <select class="calcul-four-select calcul-four-select-nuance_acier">
+              <option value="B" selected>B500B</option>
+              <option value="A">B500A</option>
+              
+            </select>
+            </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              MPa 
+              </p>
+            </div>
+          <div class="calcul-four_columns calcul-four_text ">
+            B500A - classe de duclité A, <br>
+            B500B - classe de duclité B.
+            </div>
+        </div>
+        <div class="alert alert-element-classe-nuance_acier"></div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Coefficient réducteur pour les actions variables :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              Ψ<sub>2</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-select">
+            <select class="calcul-four-select calcul-four-select-coef_reduct">
+              <option value="0.3" selected>Habitations</option>
+              <option value="0.3">Bureaux</option>
+              <option value="0.6">Espaces publics</option>
+              <option value="0.6">Commerces</option>
+              <option value="0.8">Stockage</option> 
+              <option value="0.6">Zone de trafic &le; 30 kN</option>
+              <option value="0.3">Zone de trafic &le; 160 kN</option> <option value="0">Toits</option> 
+            </select>
+            </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              - 
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text calcul-four-coef_reduct">
+            Ψ<sub>2</sub> = 0.3.
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Classe structurale :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              S
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four-beton-classe_str">
+            S4
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              -
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            <a href="https://beton-guide.com/calcul/classe-structurale-constructions-beton-eurocode-definition-calcul-application-exemples.html">classes structurales</a>. 
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Enrobage minimal pour une bonne adhérence:</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              c<sub>min,b</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-select">
+            <select class="calcul-four-select calcul-four-select-c_min_b">
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="10" selected>10</option>
+              <option value="12">12</option>
+              <option value="14">14</option> 
+              <option value="16">16</option>
+              <option value="20">20</option> 
+              <option value="25">25</option> 
+            </select>
+            </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              mm
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            <p style="font-size: 0.8rem; padding-right: 0.4rem;">c<sub>min,b</sub> = ∅ de la barre ou ∅ des plus gros granulats (ajustez cette valeur en fonction des résultats obtenus).</p>
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Enrobage minimal des conditions d’environnement :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              c<sub>min,dur</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-enrobage_min_dur">
+            15
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              mm
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            <a href="https://beton-guide.com/beton-arme/enrobage-beton-importance-determination-eurocode2-exemples-calcul-cales.html">enrobage du béton</a>. 
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Enrobage minimal :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              c<sub>min</sub> = max [c<sub>min,b</sub> ; c<sub>min,dur</sub> ; 10 mm]
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-enrobage_min">
+            15
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              mm
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Enrobage nominal à respecter :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              c<sub>nom</sub> = c<sub>min</sub> + Δc<sub>dev</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-enrobage_nom">
+            0.025
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            c<sub>nom</sub> - enrobage figurer dans les plans,<br>Δc<sub>dev</sub> = 10 mm.
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Enrobage réel:</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              c
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-enrobage_reel" value="0.025">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            L'enrobage réel c doit être supérieur ou égal à c<sub>nom</sub>.   
+            </div>
+        </div>
+        <div class="alert alert-element-classe-enrobage"></div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Dimension nominale du plus gros granulat:</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              D<sub>max</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-dmax" value="20">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              mm
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            Dans le béton courant, la dimension maximale D<sub>max</sub> ≤ 22,4 mm.   
+            </div>
+        </div>
+        <div class="alert alert-element-classe-dmax"></div>
+
+<h3 class="h3">
+    <span class="h3-text">DIMENSIONS DE LA POUTRE</span>
+ </h3>
+ 
+ <div class="calcul-four">
+          <div class="calcul-four_columns ">
+            <p class="calcul-four_inscriptions">Appellation</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_inscriptions">Symbole / Formule</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_3">
+            <p class="calcul-four_inscriptions">Valeur</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_inscriptions">Unité</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_5">
+            <p class="calcul-four_inscriptions">Remarques</p>
+          </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Largeur de la poutre :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              b
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_b" value="0.2">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            b &lt; l<sub>n</sub>/3 ;
+          </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Hauteur de la poutre :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              h
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_h" value="0.4">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-rem_h">
+            
+          </div>
+          </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">La portée entre nus des appuis :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              l<sub>n</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_ln" value="3.9">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            l<sub>n</sub> &gt; 3 x b ;
+          </div>
+          </div>
+        
+        <div class="alert alert-element_poutre"></div>
+        
+        
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Largeur d'appui gauche :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              t<sub>g</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_tg" value="0.3">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-rem_tg">
+            
+          </div>
+          </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Largeur d'appui droit :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              t<sub>d</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_td" value="0.3">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-rem_td">
+            
+          </div>
+          </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">La portée entre axes :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_symb">
+              l<sub>eff</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four_leff">
+            4.2
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four-rem_leff">
+            
+          </div>
+          </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">La hauteur utile de la section :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              d =  h - (enrobage + ∅/2)
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_dprecis" value="0.345">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text calcul-four-rem_dprecis">
+            <p style="padding-right: 0.4rem;">d<sub>anticipé</sub> = (0.9 x h), <span style="font-size: 0.8rem;">(ajustez cette valeur en fonction des résultats obtenus.)</span></p>
+          </div>
+          </div>
+        <div class="alert alert-element_d"></div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Distance du centre de gravité des armatures comprimées :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              c' = enrobage + ∅'/2
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_color">
+            <input type="number" class="calcul-four_value calcul-four_cenr" value="0.05">
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              m
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text calcul-four-rem_dprecis">
+            <p style="font-size: 0.8rem; padding-right: 0.4rem;">Généralement entre 0,03 et 0,07 m, (ajustez cette valeur en fonction des résultats obtenus).</p>
+          </div>
+          </div>
+
+<h3 class="h3">
+    <span class="h3-text">
+      CHARGES
+      </span>
+  </h3>
+
+<div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_inscriptions">
+              <p class="calcul-four_inscriptions">Appellation</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_symb">
+              <p class="calcul-four_inscriptions">Symbole / Formule</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_3">
+              <p class="calcul-four_inscriptions">Valeur</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_inscriptions">Unité</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_5">
+              <p class="calcul-four_inscriptions">Remarques</p>
+          </div>
+        </div>
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Charges permanentes<br> (uniformément réparties par mètre de poutre) :</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                G<sub>u</sub>
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_color">
+              <input type="number" class="calcul-four_value calcul-four_gu" value="17.9">
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN/m
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Actions variables<br> (charges d'exploitations uniformément réparties):</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                Q
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_color">
+              <input type="number" class="calcul-four_value calcul-four_q" value="8">
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN/m
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+          
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Poids propre de la poutre par mètre linéaire :</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                G<sub>pp</sub> = b*h*25kN/m<sup>3</sup>
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four-beton_gpp">
+              2  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN/m
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Actions permanentes :</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                G = G<sub>u</sub> + G<sub>pp</sub>
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four-beton_g">
+              19.9  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN/m
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+          
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Action totale pondérée à ELU :</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                p<sub>u</sub> = 1,35G + 1,5Q
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four-beton_pu">
+              38.9  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN/m
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+          
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Action totale pondérée à ELS :</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                p<sub>ser,qp</sub> = G + Ψ<sub>2</sub>Q
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four-beton_pser_qp">
+              22.3  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN/m
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Moment fléchissant maximal (ELU):</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                M<sub>Ed</sub> = p<sub>u</sub> * l<sub>eff</sub>² / 8
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four_med">
+              85.8  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kNm
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text">Moment fléchissant quasi-permanent (ELS):</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                M<sub>qp</sub> = p<sub>ser,qp</sub> * l<sub>eff</sub>² / 8
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four_mqp">
+              49.17  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kNm
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+          
+        <div class="calcul-four">
+            <div class="calcul-four_columns calcul-four_1">
+              <p class="calcul-four_text"> Effort tranchant maximal de calcul (ELU):</p>
+          </div>
+            <div class="calcul-four_columns calcul-four_2">
+              <p class="calcul-four_symb">
+                V<sub>Ed</sub> = p<sub>u</sub> * l<sub>n</sub> / 2
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_result calcul-four_ved">
+              75.9  
+          </div>
+            <div class="calcul-four_columns calcul-four_4">
+              <p class="calcul-four_unit">
+                kN
+                </p>
+          </div>
+            <div class="calcul-four_columns calcul-four_text">
+              
+            </div>
+        </div>
+
+<h3 class="h3">
+          <span class="h3-text">
+            PROPRIÉTÉS DU BÉTON
+            </span>
+          </h3>
+
+<div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_inscriptions">
+            <p class="calcul-four_inscriptions">Appellation</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_symb">
+            <p class="calcul-four_inscriptions">Symbole / Formule</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_3">
+            <p class="calcul-four_inscriptions">Valeur</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_inscriptions">Unité</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_5">
+            <p class="calcul-four_inscriptions">Remarques</p>
+          </div>
+          </div>
+        
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Resistance du beton en compression :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              f<sub>ck</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four-beton_fck">
+            25
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              MPa
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            Résistance mesurée sur cylindres. 
+          </div>
+          </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Resistance du beton en flexion:</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              f<sub>cd</sub> = α<sub>cc</sub> * (f<sub>ck</sub>/ɣ<sub>c</sub>) 
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four-beton_fcd">
+            16.7  
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              MPa
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            En France: α<sub>cc</sub> = 1;
+            à l'ELU sous actions courantes: ɣ<sub>c</sub>=1.5. 
+          </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Resistance du beton en traction :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              f<sub>ctk, 0.05</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four-beton_fctk">
+            1.8
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              MPa
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            (fractile 5%) 
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Déformation relative en compression :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              ε<sub>c2</sub> = 2x10<sup>-3</sup> si classe &lt; C55;
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four-beton_ec2">
+            0.002
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              <sup>0</sup>/<sub>00</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            sinon ε<sub>c2</sub> = 2 + 0,085x(f<sub>ck</sub> – 50)<sup>0,53</sup>; 
+            </div>
+        </div>
+        
+        <div class="calcul-four">
+          <div class="calcul-four_columns calcul-four_1">
+            <p class="calcul-four_text">Déformation relative ultime en compression :</p>
+          </div>
+          <div class="calcul-four_columns calcul-four_2">
+            <p class="calcul-four_symb">
+              ε<sub>cu2</sub> = 3.5x10<sup>-3</sup> si classe &lt; C55;
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_result calcul-four-beton_ecu2">
+            0.0035
+          </div>
+          <div class="calcul-four_columns calcul-four_4">
+            <p class="calcul-four_unit">
+              <sup>0</sup>/<sub>00</sub>
+              </p>
+          </div>
+          <div class="calcul-four_columns calcul-four_text">
+            sinon ε<sub>cu2</sub> = 2,6 + 35x((90 – f<sub>ck</sub>)/100)<sup>4</sup>; 
+            </div>
+        </div>
+
+<h3 class="h3">
+        <span class="h3-text">
+          PROPRIÉTÉS D'ACIER
+          </span>
+      </h3>
+
+<div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_inscriptions">
+          <p class="calcul-four_inscriptions">Appellation</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_symb">
+          <p class="calcul-four_inscriptions">Symbole / Formule</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_3">
+          <p class="calcul-four_inscriptions">Valeur</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_inscriptions">Unité</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_5">
+          <p class="calcul-four_inscriptions">Remarques</p>
+        </div>
+      </div>
+      
+      
+      
+      <div class="alert alert-nuance_acier"></div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">La limite élastique de l’acier :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            f<sub>yk</sub>
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four-acier_fyk">
+          500
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            MPa
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text">
+          
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Limite élastique de calcul pour l’acier :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            f<sub>yd</sub> = f<sub>yk</sub> / ɣ<sub>s</sub>
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four-acier_fyd">
+          435
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            MPa
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text">
+          ɣ<sub>s</sub> = 1.15 (sous actions courantes).
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Module d'élasticité :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            E<sub>s</sub>
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four-acier_es">
+          200000
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            MPa
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text">
+          
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Déformation ultime de l’acier de classe B :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            ε<sub>uk</sub>
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four-acier_euk">
+          5
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            %
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text">
+          Pour de l’acier de classe A ε<sub>uk</sub> = 2.5%.
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Déformation utilisable :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            ε<sub>ud</sub> = 0.9 * ε<sub>uk</sub>
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four-acier_eud">
+          4,5
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            %
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text">
+          
+          </div>
+      </div>
+
+<h3 class="h3">
+        <span class="h3-text">
+          CALCUL DE LA SECTION DES ACIERS LONGITUDINAUX
+          </span>
+      </h3>
+
+<div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_inscriptions">
+          <p class="calcul-four_inscriptions">Appellation</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_symb">
+          <p class="calcul-four_inscriptions">Symbole / Formule</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_3">
+          <p class="calcul-four_inscriptions">Valeur</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_inscriptions">Unité</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_5">
+          <p class="calcul-four_inscriptions">Remarques</p>
+        </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text"> Moment réduit :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            μ = M<sub>Ed</sub> / (b * d² * f<sub>cd</sub>)
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four_mu">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            -
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text">
+          M<sub>Ed</sub> en MNm.
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text"> La hauteur relative de la zone comprimée :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb">
+            α (x/d) = 1,25(1 - √(1 - 2μ))
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four_alpha">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit calcul-four-alpha_ok">
+            -
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text calcul-four_text_alpha">
+          Pour les bétons de classe ≤ C50/60 : α (x/d) doit être ≤ 0,45
+          </div>
+      </div>
+      <div class="alert alert-element_alpha"></div>
+      <div class="alert alert-element_alpha_1"></div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Section d’acier en compression :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2">
+          <p class="calcul-four_symb calcul-four_symb_acom">
+            A'
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four_acom">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            cm²
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text calcul-four_text_acom">
+          
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Section d’acier en traction :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2 calcul-four-as_formule">
+          <p class="calcul-four_symb calcul-four_symb_as">
+            A<sub>s</sub>  
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_result calcul-four_as">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit">
+            cm²
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text calcul-four_text_as">
+          
+          </div>
+      </div>
+
+<h3 class="h3">
+        <span class="h3-text">
+          VÉRIFICATIONS DES ACIERS LONGITUDINAUX
+          </span>
+      </h3>	
+
+<div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_inscriptions">
+          <p class="calcul-four_inscriptions">Vérification</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_symb">
+          <p class="calcul-four_inscriptions">Formule / Condition</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_3">
+          <p class="calcul-four_inscriptions">Valeurs</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_inscriptions">Statut</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_5">
+          <p class="calcul-four_inscriptions">Remarques</p>
+        </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Taux d'armature maximal :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2 calcul-four-as_formule">
+          <p class="calcul-four_symb calcul-four_symb_as">
+            A<sub>s</sub> ≤ A<sub>s,max</sub> = 0,04A<sub>c</sub> 
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_verif calcul-four_verif_asmax">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit verif-status_asmax">
+            
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text verif-text_asmax">
+          A<sub>c</sub> = b * h;
+          </div>
+      </div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Taux d'armature minimale (non-fragilité) :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2 calcul-four-as_formule">
+          <p class="calcul-four_symb calcul-four_symb_asmin">
+            A<sub>s</sub> &gt; A<sub>s,min</sub><br>
+            A<sub>s,min</sub> = max [0.26*(f<sub>ctm</sub>/f<sub>yk</sub>)*d*b; 1.3<sup>0</sup>/<sub>00</sub>*d*b] </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_verif calcul-four_verif_asmin">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit verif-status_asmin">
+            
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text verif-text_asmin">
+          f<sub>ctm</sub> = 0.3*f<sub>ck</sub><sup>2/3</sup> ;
+          </div>
+      </div>
+        
+    <div class="alert alert-element_asmin"></div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Vérification de la contrainte de compression :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2 calcul-four-as_formule">
+          <p class="calcul-four_symb calcul-four_symb_sigmacqp">
+            σ<sub>c,qp,ser</sub> ≤ 0.45f<sub>ck</sub><br>σ<sub>c,qp,ser</sub> = M<sub>qp</sub> * x / I;</p>
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_verif calcul-four_verif_sigmacqp">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit verif-status_sigmacqp">
+            
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_text verif-text_sigmacqp">
+          x - la position de l'axe neutre ;<br>I - moment d'inertie de la section.
+          </div>
+      </div>
+      <div class="alert alert-element_sigmacqp"></div>
+      
+      <div class="calcul-four">
+        <div class="calcul-four_columns calcul-four_1">
+          <p class="calcul-four_text">Vérification de la flèche simplifiée (par le rapport l/d) :</p>
+        </div>
+        <div class="calcul-four_columns calcul-four_2 calcul-four-as_formule">
+          <p class="calcul-four_symb calcul-four_symb_fleche">
+            l<sub>eff</sub>/d ≤ A<sub>1</sub>, si ρ ≤ ρ<sub>0</sub><br>
+            l<sub>eff</sub>/d ≤ A<sub>2</sub>, si ρ &gt; ρ<sub>0</sub><br>
+            K = 1 (travée isolée).
+            </p>
+        </div>
+        <div class="calcul-four_columns calcul-four_verif calcul-four_verif_fleche">
+          
+        </div>
+        <div class="calcul-four_columns calcul-four_4">
+          <p class="calcul-four_unit verif-status_fleche">
+            
+            </p>
+        </div>
+        <div class="calcul-four_ calcul-four_text verif-text_fleche">
+          ρ = As/(b*d), ρ' = A'<sub>s</sub>/(b*d) ,<br> 
+          ρ<sub>0</sub> = √f<sub>ck</sub> * 10<sup>-3</sup>,<br>
+          A<sub>1</sub> = K*[11 + 1,5 √f<sub>ck</sub> ρ<sub>0</sub>/ρ + 3,2 √f<sub>ck</sub> (ρ<sub>0</sub>/ρ - 1)<sup>3/2</sup>];<br>
+          A<sub>2</sub> = K*[11 + 1,5 √f<sub>ck</sub> ρ<sub>0</sub>/(ρ-ρ') + 1/12 √f<sub>ck</sub>*√(ρ'/ρ<sub>0</sub>)];
+		  
+          </div>
+      </div>
+      <div class="alert alert-element_fleche"></div>	  
+
+<script src="calcul-poutre-ready.js" defer></script>
+
+</body>
+</html>
